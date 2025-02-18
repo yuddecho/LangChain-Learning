@@ -9,6 +9,12 @@ from langgraph.graph import StateGraph
 from typing_extensions import TypedDict
 from langgraph.graph.message import add_messages
 
+import os
+os.environ["LANGSMITH_TRACING"] = "true"
+os.environ["LANGSMITH_ENDPOINT"] = "https://api.smith.langchain.com"
+os.environ["LANGSMITH_API_KEY"] = "lsv2_pt_816fa3eae5564fb0a9f8e834bda75060_d21e11667211"
+os.environ["LANGSMITH_PROJECT"] = "pr-fresh-class-89"
+
 class State(TypedDict):
     messages: Annotated[list, add_messages]
 
@@ -21,7 +27,7 @@ from langchain_openai import ChatOpenAI
 model = ChatOpenAI(
     temperature=0.95,
     model="glm-4",
-    openai_api_key="9a523c8b1e8145bcb9755a876611b372.mEg9L0BVnBsAHytk11",
+    openai_api_key="9a523c8b1e8145bcb9755a876611b372.mEg9L0BVnBsAHytk",
     openai_api_base="https://open.bigmodel.cn/api/paas/v4/"
 )
 
